@@ -1,0 +1,48 @@
+baseURL = "https://hrmsk66.github.io/"
+languageCode = "ja"
+title = "memo"
+theme = "Kiss"
+Paginate = 5
+enableRobotsTXT = true
+
+[params.info]
+adsense = "" # Adsense ID (ID only, without ca-pub-)
+enableSocial = true # Adds OpenGraph and Twitter cards
+homeTitle = "" # Title for home page
+poweredby = false # Adds powered by hugo and kiss below Copyright
+related = true # Includes related articles at the bottom of the article
+codeCopy = true # Add copy button above code blocks
+taxonomiesCount = true # Add taxonomies count
+
+[params.social]
+github = "hrmsk66"
+
+[params.social.config]
+platforms = ["github"]
+
+[params.assets]
+customCSS = ["css/custom.css"]
+
+[taxonomies]
+tag = "tags"
+
+[[menu.main]]
+    name = "home"
+    pre = "<i class='fa fa-heart'></i>"
+    weight = -110
+    url = "/"
+[[menu.main]]
+    name = "post"
+    pre = "<i class='fa fa-road'></i>"
+    weight = -100
+    url = "/post/"
+[[menu.main]]
+    name = "slide"
+    pre = "<i class='fa fa-road'></i>"
+    weight = -90
+    url = "/slide/"
+
+[permalinks]
+post = "/post/:year/:month/:day/:filename/"
+slide = "/slide/:year/:month/:day/:filename/"
+
