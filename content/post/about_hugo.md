@@ -5,10 +5,7 @@ draft: false
 tags: ["html","css","hugo"]
 ---
 
-# HUGO
-
-## Install
-
+## HUGO / Installと編集作業
 ```
 brew install hugo
 hugo new site memo
@@ -22,21 +19,11 @@ hugo new post/helloworld.md --editor="code"
 hugo server -D --watch
 ```
 
-## Markdown
-
+## HUGO / Markdown
 半角スペース x 2 で改行できる。`</br>` と同じ。
 
-## Theme
-
+## HUGO / Theme
 Theme は [Kiss](https://github.com/ribice/kiss) を使用。  
-`hugo`コマンドでビルド、`public/`をGithub PagesのリポジトリにPush。  
-親ディレクトリで`themes/kiss`と`public/`をsubmoduleとして設定してPush。
-
-```
-git init
-git submodule add git@github.com:ribice/kiss.git themes/kiss
-git submodule add git@github.com:hrmsk66/hrmsk66.github.io.git public
-```
 
 Themeをカスタマイズしたくなったら`layout/`や`static/`の下に同じ名前のファイルを置いてオーバライドする。  
 `theme/`配下のファイルは編集しない。
@@ -82,7 +69,7 @@ Themeをカスタマイズしたくなったら`layout/`や`static/`の下に同
 ### static/*.png
 [Favicon Generator](https://realfavicongenerator.net/)で作ったイメージ(favicon)を`/static`に配置。
 
-## config.toml
+## HUGO / config.toml
 コンテンツは記事とスライドの2種類。これを`menu.main`に追加。先述の`layouts/partials/nav.html`への変更によりHome右上に各コンテンツへのリンクが配置される。
 コンテンツのURLは日付+ファイル名とする。
 
@@ -136,10 +123,8 @@ post = "/post/:year/:month/:day/:filename/"
 slide = "/slide/:year/:month/:day/:filename/"
 ```
 
-## archetypes
-
+## HUGO / archetypes
 ### archetypes/post.md
-
 ```
 ---
 title: "{{ replace .Name "-" " " | title }}"
@@ -151,7 +136,6 @@ tags: ["", ""]
 ```
 
 ### archetypes/slide.md
-
 ```
 ---
 title: "{{ replace .Name "-" " " | title }}"
@@ -162,11 +146,9 @@ tags: ["", ""]
 ---
 ```
 
-## 複数テンプレートを使い分ける
-
+## HUGO / 複数テンプレートを使い分ける
 `/post` のコンテンツには記事用のレイアウト、`/slide` のコンテンツにはスライド用のレイアウトを適用したい。
 とりあえず`layouts/slide/single.html`を配置。スライドモードになるともとのページに戻れないのが不便なのでおいおい何とかしたい。
-
 ```
 <html>
   <head>
@@ -190,8 +172,7 @@ tags: ["", ""]
 
 ---
 
-# remark.js
-
+## HUGO + remark.js
 https://github.com/gnab/remark/wiki
 
 縦横比を16:9に変更。
@@ -219,12 +200,17 @@ Getting StartedのHTMLではこのURLが使われているがHTTPなのでMixed 
 ページをクローンすることで自分はカンペ付きの発表者用ページを、オーディエンスには通常スライドを表示することができる。
 `Shift + C`でスライド画面のクローンを作成、`Shift + P` で発表者用画面を表示。
 
-# Github Actions
+## HUGO / Build
+`hugo`コマンドでビルド、`public/`をGithub PagesのリポジトリにPush。  
+親ディレクトリで`themes/kiss`と`public/`をsubmoduleとして設定してPush。
 
-親ディレクトリと`public/`を別々に管理するのがつらい。時間のあるときにGithub Actionsを試したい。  
-[GitHub Actions による GitHub Pages への自動デプロイ](https://qiita.com/peaceiris/items/d401f2e5724fdcb0759d)  
-現状のアップデートフロー
+```
+git init
+git submodule add git@github.com:ribice/kiss.git themes/kiss
+git submodule add git@github.com:hrmsk66/hrmsk66.github.io.git public
+```
 
+現状のアップデートフロー。面倒。
 ```
 hugo
 cd public
@@ -237,3 +223,7 @@ git add .
 git commit -m 'update content'
 git push -u origin master
 ```
+
+# Github Actions
+親ディレクトリと`public/`を別々に管理するのがつらい。時間のあるときにGithub Actionsを試したい。  
+[GitHub Actions による GitHub Pages への自動デプロイ](https://qiita.com/peaceiris/items/d401f2e5724fdcb0759d)  
