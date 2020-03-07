@@ -28,10 +28,14 @@ hugo server -D --watch
 
 ## Theme
 
-Theme は [Kiss](https://github.com/ribice/kiss)。
+Theme は [Kiss](https://github.com/ribice/kiss) を使用。  
+`hugo`コマンドでビルド、`public/`をGithub PagesのリポジトリにPush。  
+親ディレクトリで`themes/kiss`と`public/`をsubmoduleとして設定してPush。
+
 ```
 git init
 git submodule add git@github.com:ribice/kiss.git themes/kiss
+git submodule add git@github.com:hrmsk66/hrmsk66.github.io.git public
 ```
 
 Themeをカスタマイズしたくなったら`layout/`や`static/`の下に同じ名前のファイルを置いてオーバライドする。  
