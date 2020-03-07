@@ -219,3 +219,8 @@ Getting StartedのHTMLではこのURLが使われているがHTTPなのでMixed 
 
 ページをクローンすることで自分はカンペ付きの発表者用ページを、オーディエンスには通常スライドを表示することができる。
 `Shift + C`でスライド画面のクローンを作成、`Shift + P` で発表者用画面を表示。
+
+# Github Actions
+
+親ディレクトリと`public/`を別々に管理するのがつらい。時間のあるときにGithub Actionsを試したい。
+[GitHub Actions による GitHub Pages への自動デプロイ](https://qiita.com/peaceiris/items/d401f2e5724fdcb0759d)
