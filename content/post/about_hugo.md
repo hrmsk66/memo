@@ -218,7 +218,6 @@ git add .
 git commit -m 'update content'
 git push -u origin master
 cd ..
-git submodule update public
 git add .
 git commit -m 'update content'
 git push -u origin master
